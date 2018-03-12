@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+@Library('TestSharedLib') _
 
 pipeline {
   agent {
@@ -13,16 +14,14 @@ pipeline {
         }
       }
     }
-    /*
-    stage('Process Version Info') {
+
+    stage('Groovy shared library call') {
       steps {
-        library 'rpm/errata.groovy'
-        // TEST of errata script
-        def errata = load('rpm/errata.groovy')
-        def erratum_created = errata.createRHSSOAdvisory('1524545')
-        println "Created erratum: ${erratum_created?.content?.content?.errata_id}"
+        script {
+          TestSharedLib.displayMessage("A message from Groovy script")
+        }
       }
     }
-    */
+
   }
 }
