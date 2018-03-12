@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-@Library('TestSharedLib') _
+//@Library('TestSharedLib') _
 
 pipeline {
   agent {
@@ -17,8 +17,9 @@ pipeline {
 
     stage('Groovy shared library call') {
       steps {
+        library identifier: 'sharedlib', retriever: filesystem(path: 'src/TestSharedLib.groovy')
         script {
-          TestSharedLib.displayMessage("A message from Groovy script")
+          sharedLib.displayMessage("A message from Groovy script")
         }
       }
     }
