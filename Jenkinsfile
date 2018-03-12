@@ -1,11 +1,15 @@
 #!/usr/bin/env groovy
 
 pipeline {
+  agent {
+    label 'my-pipeline'
+  }
+
   stages {
     stage('Hello') {
       steps {
         script {
-          printl "Hello World!\n"
+          printl "Hello World from my-pipeline!\n"
         }
       }
     }
