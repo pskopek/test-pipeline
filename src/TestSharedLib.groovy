@@ -8,4 +8,4 @@ void displayMessage(String message) {
   println message
 }
 
-displayMessage(args[0])
+return this
