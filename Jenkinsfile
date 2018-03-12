@@ -17,12 +17,7 @@ pipeline {
 
     stage('Groovy shared library call') {
       steps {
-        // library identifier: 'sharedlib', retriever: filesystem(path: 'src/TestSharedLib.groovy')
-        script {
-          def filename = "src/TestSharedLib.groovy"
-          def lib = load(build.project.workspace.child(filename).readToString())
-          lib.displayMessage("A message from Groovy script")
-        }
+        sh "groovy src/TestSharedLib.groovy 'hello from script'"
       }
     }
 
