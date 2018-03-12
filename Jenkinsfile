@@ -9,7 +9,7 @@ pipeline {
     stage('Hello') {
       steps {
         script {
-          printl "Hello World from my-pipeline!\n"
+          println "Hello World from my-pipeline!"
         }
       }
     }
