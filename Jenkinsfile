@@ -20,7 +20,7 @@ pipeline {
         // library identifier: 'sharedlib', retriever: filesystem(path: 'src/TestSharedLib.groovy')
         script {
           def filename = "src/TestSharedLib.groovy"
-          def lib = load(evaluate(build.project.workspace.child(filename).readToString()))
+          def lib = load(build.project.workspace.child(filename).readToString())
           lib.displayMessage("A message from Groovy script")
         }
       }
