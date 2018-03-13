@@ -2,7 +2,8 @@
 //@Library('TestSharedLib') _
 
 def getLib() {
-  return load 'src/TestSharedLib.groovy'
+  def lib = load 'src/TestSharedLib.groovy'
+  return lib
 }
 
 pipeline {
