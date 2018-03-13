@@ -1,10 +1,7 @@
 #!/usr/bin/env groovy
 //@Library('TestSharedLib') _
 
-def message(String message) {
-  def lib = load 'src/TestSharedLib.groovy'
-  lib.displayMessage(message)
-}
+def lib = load 'src/TestSharedLib.groovy'
 
 pipeline {
   agent {
@@ -22,7 +19,7 @@ pipeline {
 
     stage('Groovy shared library call') {
       steps {
-        message('hello from script')
+        lib.displayMessage('hello from script')
       }
     }
 
