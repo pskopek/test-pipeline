@@ -19,7 +19,9 @@ pipeline {
 
     stage('Groovy shared library call') {
       steps {
-        lib.displayMessage('hello from script')
+        script {
+          lib.displayMessage('hello from script')
+        }
       }
     }
 
